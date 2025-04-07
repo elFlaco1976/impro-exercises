@@ -1,4 +1,4 @@
-const test1 = async (event, context) => {
+const test1 = async () => {
   const words = ['apple', 'banana', 'cherry' /* ... more words ... */];
   const randomWord = words[Math.floor(Math.random() * words.length)];
 

@@ -7,7 +7,7 @@ export const Route = createFileRoute('/')({
 });
 
 function App() {
-  const { data, error, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['words'],
     queryFn: async () => {
       /*       const response = await fetch('/.netlify/functions/words');
