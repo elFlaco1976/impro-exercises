@@ -1,4 +1,4 @@
-const test1 = async () => {
+export default async () => {
   const words = ['apple', 'banana', 'cherry' /* ... more words ... */];
   const randomWord = words[Math.floor(Math.random() * words.length)];
 
@@ -7,5 +7,3 @@ const test1 = async () => {
     body: JSON.stringify({ word: randomWord }),
   };
 };
-
-export default test1;

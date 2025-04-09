@@ -10,13 +10,9 @@ function App() {
   const { data } = useQuery({
     queryKey: ['words'],
     queryFn: async () => {
-      /*       const response = await fetch('/.netlify/functions/words');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json(); */
-      const response = await axios<{ word: string }>({
+      const response = await axios({
         url: 'https://improx.netlify.app/.netlify/functions/words',
+        // url: 'https://pokeapi.co/api/v2/ability/1',
         method: 'GET',
       });
 
@@ -29,9 +25,11 @@ function App() {
       <header>
         <h1 className="text-4xl font-bold text-blue-600">
           Testing Netlify Functions
-          {data === undefined && <span>Loading...</span>}
-          {data !== undefined && <span>Word: {data.word}</span>}
         </h1>
+        <div>
+          {data === undefined && <p>Loading...</p>}
+          {data !== undefined && <p>Word: {data.name}</p>}
+        </div>
       </header>
     </div>
   );
