@@ -12,7 +12,6 @@ function App() {
     queryFn: async () => {
       const response = await axios({
         url: 'https://improx.netlify.app/.netlify/functions/words',
-        // url: 'https://pokeapi.co/api/v2/ability/1',
         method: 'GET',
       });
 
