@@ -1,7 +1,6 @@
 import useGetRandomWord from '@/server/useGetRandomWord';
-import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
-import axios from 'axios';
+
 import { useState } from 'react';
 
 export const Route = createFileRoute('/')({
