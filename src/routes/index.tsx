@@ -1,7 +1,7 @@
 import useGetRandomWord from '@/server/useGetRandomWord';
 import { createFileRoute } from '@tanstack/react-router';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -11,7 +11,9 @@ function App() {
   const [isFirstRender, setIsFirstRender] = useState(true);
   const response = useGetRandomWord(isFirstRender);
 
-  setIsFirstRender(false);
+  useEffect(() => {
+    setIsFirstRender(true);
+  });
 
   const handleButtonClick = () => {
     response.refetch();
