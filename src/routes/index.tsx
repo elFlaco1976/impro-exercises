@@ -9,19 +9,26 @@ export const Route = createFileRoute('/')({
 
 function App() {
   const [isFirstRender, setIsFirstRender] = useState(true);
-  const { data } = useGetRandomWord(isFirstRender);
+  const response = useGetRandomWord(isFirstRender);
 
   setIsFirstRender(false);
+
+  const handleButtonClick = () => {
+    response.refetch();
+  };
 
   return (
     <div className="text-center">
       <header>
         <h1 className="text-4xl font-bold text-blue-600">
-          Testing Netlify Functions
+          Improvise with word
         </h1>
         <div>
-          {data === undefined && <p>Loading...</p>}
-          {data !== undefined && <p>Word: {data.name}</p>}
+          {response.data === undefined && <p>Loading...</p>}
+          {response.data !== undefined && <p>Word: {response.data.name}</p>}
+        </div>
+        <div>
+          <button onClick={handleButtonClick}>New word</button>
         </div>
       </header>
     </div>
