@@ -23,14 +23,19 @@ function App() {
     <div className="text-center">
       <header>
         <h1 className="text-4xl font-bold text-blue-600">
-          Improvise with word
+          Improvise with words
         </h1>
-        <div>
+        <div className="text-2xl">
           {response.data === undefined && <p>Loading...</p>}
-          {response.data !== undefined && <p>Word: {response.data.name}</p>}
+          {response.data !== undefined && <p>{response.data.name}</p>}
         </div>
         <div>
-          <button onClick={handleButtonClick}>New word</button>
+          <button
+            className="bg-blue-500 text-black text-2xl"
+            onClick={handleButtonClick}
+          >
+            New word
+          </button>
         </div>
       </header>
     </div>

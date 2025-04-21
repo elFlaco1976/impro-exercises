@@ -6,13 +6,15 @@ const useGetRandomWord = (isFirstRender: boolean) => {
     queryKey: ['words'],
     queryFn: async () => {
       const response = await axios({
-        url: 'https://improx.netlify.app/.netlify/functions/words',
+        url: `/.netlify/functions/words`,
         method: 'GET',
       });
 
       return response.data;
     },
     enabled: isFirstRender,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
   });
 
   return queryResponse;
