@@ -46,5 +46,5 @@ export default async (_req: Request, _context: Context) => {
   const randomWord =
     spanishWords[Math.floor(Math.random() * spanishWords.length)];
 
-  return new Response(JSON.stringify({ name: randomWord }));
+  return new Response(JSON.stringify({ word: randomWord }));
 };

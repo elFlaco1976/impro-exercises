@@ -19,7 +19,7 @@ function App() {
     response.refetch();
   };
 
-  console.log('response.data.word', response.data);
+  console.log('response.data', response.data);
 
   return (
     <div className="text-center">
