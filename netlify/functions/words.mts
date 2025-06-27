@@ -1,3 +1,4 @@
+import type { ApiWords } from '@/types/ApiWords';
 import type { Context } from '@netlify/functions';
 
 export default async (_req: Request, _context: Context) => {
@@ -43,8 +44,9 @@ export default async (_req: Request, _context: Context) => {
     "inteligente", "tonto", "sabio", "ignorante", "educado", "maleducado", "amable", "grosero", "generoso", "egoísta"
   ];
 
-  const randomWord =
-    spanishWords[Math.floor(Math.random() * spanishWords.length)];
+  const englishWords: string[] = [];
 
-  return new Response(JSON.stringify({ word: randomWord }));
+  const words: ApiWords = { spanish: spanishWords, english: englishWords };
+
+  return new Response(JSON.stringify({ words }));
 };

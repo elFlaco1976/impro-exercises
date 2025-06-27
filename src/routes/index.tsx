@@ -9,17 +9,17 @@ export const Route = createFileRoute('/')({
 
 function App() {
   const [isFirstRender, setIsFirstRender] = useState(true);
-  const response = useGetRandomWord(isFirstRender);
+  const response = useGetRandomWord();
 
   useEffect(() => {
-    setIsFirstRender(true);
-  });
+    if (!isFirstRender) {
+      setIsFirstRender(true);
+    }
+  }, [isFirstRender]);
 
   const handleButtonClick = () => {
     response.refetch();
   };
-
-  console.log('response.data', response.data);
 
   return (
     <div className="text-center">
@@ -29,7 +29,7 @@ function App() {
 
       <main className="flex flex-col items-center justify-center min-h-screen">
         <div className="text-2xl font-semibold text-gray-800">
-          {response.data === undefined ? 'Loading...' : response.data.word}
+          {response.data === undefined ? 'Loading...' : response.data}
         </div>
         <button
           onClick={handleButtonClick}

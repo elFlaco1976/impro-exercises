@@ -2,3 +2,4 @@
   targetPort = 3000
   port = 8888
   command = "pnpm start"
+  functions = "netlify/functions"
